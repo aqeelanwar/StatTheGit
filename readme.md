@@ -1,5 +1,5 @@
 # StatTheGit - Python Code to Maintain Statistics for GitHub Repositories
-![s](images\statthegit.png)
+![StatTheGit](images/statthegit.png)
 
 ## What is StatTheGit
 StatTheGit is a python based tool to fetch, maintain and display GitHub clone and views statistics. By default GitHub only maintains GitHub repository statistics
