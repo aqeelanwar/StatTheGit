@@ -5,6 +5,8 @@
 StatTheGit is a python based tool to fetch, maintain and display GitHub clone and views statistics. By default GitHub only maintains GitHub repository statistics
 for 14 days only. This repository can be used to maintain a local copy of the repository statistics
 
+## Detailed Documentation:
+Detailed documentation on this repository can be found [here](https://medium.com/@aqeel.anwar/maintaining-github-stats-for-more-than-14-days-31653bd1d7e1?sk=0d4a7e0c1b21df8a6e715719109dcecc)
 ## How to use StatTheGit:
 
 ### Clone the repository
@@ -59,7 +61,7 @@ python display_stats.py --stat_folder repo_stats --display_type 'offline'
 Running the above command will generate one interactive graph per repository displaying the views and clones statistics.
 
 #### Online Graphs:
-Plotly is being used to plot the Github graphs. In order to create the graphs online, and have it displayed on your website, chart studio account needs to be created [Details here](article_link). Once you have the API key you can use the following commands to create online graphs that can then be shared on websites.
+Plotly is being used to plot the Github graphs. In order to create the graphs online, and have it displayed on your website, chart studio account needs to be created [Details here](https://medium.com/@aqeel.anwar/maintaining-github-stats-for-more-than-14-days-31653bd1d7e1?sk=0d4a7e0c1b21df8a6e715719109dcecc). Once you have the API key you can use the following commands to create online graphs that can then be shared on websites.
 ```
 python display_stats.py --stat_folder repo_stats --display_type 'online' --username <plotly-username> --api_key <plotly-api-key
 ```

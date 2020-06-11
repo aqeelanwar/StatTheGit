@@ -10,6 +10,7 @@ from shutil import copy2
 import os
 from tqdm import tqdm
 import argparse
+from aux_functions import display_StatTheGit
 
 # Command-line input setup
 parser = argparse.ArgumentParser(
@@ -35,21 +36,20 @@ parser.add_argument(
 
 if __name__ == "__main__":
     # Parse the command line
+    display_StatTheGit()
     args = parser.parse_args()
     g = Github(args.GitToken)
     repo_names = []
-
     # Check the repositories
     if "all" not in args.RepoNames:
-        repo_names.append(args.RepoNames)
+        # repo_names.append(args.RepoNames)
+        repo_names = args.RepoNames
     else:
         for repo in g.get_user().get_repos():
             ccc = repo._full_name.value
             if args.username in repo._full_name.value:
                 repo_n = repo._full_name.value
             repo_names.append(repo_n)
-    cc = 1
-    print(repo_names)
 
     for repo_n in tqdm(repo_names):
         # Process each repository

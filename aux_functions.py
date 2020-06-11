@@ -47,3 +47,9 @@ def plot_stat(x, y1, y2, repo_name, type="offline"):
     elif type == "online":
         url = py.plot(fig, filename=repo_name, sharing="public")
         print(url)
+
+
+def display_StatTheGit():
+    with open("display.txt", "r") as file:
+        for line in file:
+            print(line, end="")

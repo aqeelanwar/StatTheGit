@@ -25,7 +25,7 @@ parser.add_argument(
 parser.add_argument(
     "--stat_folder",
     type=str,
-    default="repo_csv/aqeelanwar",
+    default="repo_stats/aqeelanwar",
     help="Folder to the GitHub stat csvs",
 )
 parser.add_argument(
