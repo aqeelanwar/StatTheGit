@@ -14,12 +14,12 @@ from aux_functions import plot_stat
 # Command-line input setup
 parser = argparse.ArgumentParser(description="Display GitHub Stats")
 parser.add_argument(
-    "--username", type=str, default="aqeel1015", help="Chart Studio (Plotly) username",
+    "--username", type=str, default="", help="Chart Studio (Plotly) username",
 )
 parser.add_argument(
     "--api_key",
     type=str,
-    default="22Tii1ruMYbKnxtN5ZDL",
+    default="",
     help="Chart Studio (Plotly) API Key",
 )
 parser.add_argument(

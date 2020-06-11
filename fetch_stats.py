@@ -18,11 +18,11 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "--GitToken",
     type=str,
-    default="97c73fd97e4bef5c38fab2d32d9f0b2f74fc6729",
+    default="",
     help="GitHub token to your profile",
 )
 parser.add_argument(
-    "--username", type=str, default="aqeelanwar", help="GitHub Username",
+    "--username", type=str, default="", help="GitHub Username",
 )
 parser.add_argument(
     "--RepoNames",
