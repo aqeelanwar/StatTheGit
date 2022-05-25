@@ -7,7 +7,7 @@ numpy==1.18.5
 pandas==0.25.3
 plotly==4.8.1
 PyGithub==1.51
-PyJWT==1.7.1
+PyJWT==2.4.0
 python-dateutil==2.8.1
 pytz==2020.1
 requests==2.23.0
