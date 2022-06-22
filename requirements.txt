@@ -3,7 +3,7 @@ chardet==3.0.4
 chart-studio==1.1.0
 Deprecated==1.2.10
 idna==2.9
-numpy==1.18.5
+numpy==1.22.0
 pandas==0.25.3
 plotly==4.8.1
 PyGithub==1.51
