@@ -2,9 +2,6 @@
 # Created: 4 June,2020, 8:02 PM
 # Email: aqeel.anwar@gatech.edu
 
-import json
-from pprint import pprint
-
 from github import Github
 import datetime
 import csv
