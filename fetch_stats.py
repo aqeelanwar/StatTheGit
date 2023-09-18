@@ -2,6 +2,9 @@
 # Created: 4 June,2020, 8:02 PM
 # Email: aqeel.anwar@gatech.edu
 
+import json
+from pprint import pprint
+
 from github import Github
 import datetime
 import csv
@@ -141,7 +144,7 @@ if __name__ == "__main__":
                             ).date()
 
                             if datetime_obj < compare_date:
-                                writer.writerow([row[0], row[1], row[2]])
+                                writer.writerow([row[0], row[1], row[2], row[3]])
                             else:
                                 break
                         line_count += 1
@@ -159,7 +162,7 @@ if __name__ == "__main__":
             with open(csv_str) as csv_file:
                 csv_reader = csv.reader(csv_file, delimiter=",")
                 for row in csv_reader:
-                    writer.writerow([row[0], row[1], row[2]])
+                    writer.writerow([row[0], row[1], row[2], row[3]])
             csv_file.close()
 
             # Remove temp file.
