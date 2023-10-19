@@ -2,6 +2,9 @@
 # Created: 4 June,2020, 8:02 PM
 # Email: aqeel.anwar@gatech.edu
 
+import json
+from pprint import pprint
+
 from github import Github
 import datetime
 import csv
@@ -78,6 +81,7 @@ if __name__ == "__main__":
             date_array = []
             clone_array = {}
             traffic_array = {}
+            unique_array = {}
 
             # Generate array of dates under consideration
             for d in range(14):
@@ -85,6 +89,7 @@ if __name__ == "__main__":
                 # Assign zeros to clone and views statistics
                 clone_array[latest_date] = 0
                 traffic_array[latest_date] = 0
+                unique_array[latest_date] = 0
 
             # Populate the clone statistics for the available date.
             # For unavailable dates, the stat is already initialized to zero
@@ -93,6 +98,9 @@ if __name__ == "__main__":
 
             for v in traffic_stat:
                 traffic_array[str(v.timestamp.date())] = v.count
+
+            for v in traffic_stat:
+                unique_array[str(v.timestamp.date())] = v.uniques
 
             # Create the folder of username if it doesn't exists
             path_to_folder = "repo_stats/" + args.username
@@ -110,11 +118,14 @@ if __name__ == "__main__":
             csv_file = open(csv_str, "w")
             writer = csv.writer(csv_file)
             # Define header of the CSV file
-            writer.writerow(["Date", "Clones", "Traffic"])
+            writer.writerow(["Date", "Clones", "Traffic", "Unique"])
 
             clone_array = OrderedDict(sorted(clone_array.items(), key=lambda t: t[0]))
             traffic_array = OrderedDict(
                 sorted(traffic_array.items(), key=lambda t: t[0])
+            )
+            unique_array = OrderedDict(
+                sorted(unique_array.items(), key=lambda t: t[0])
             )
 
             if os.path.exists(csv_str_temp):
@@ -133,15 +144,15 @@ if __name__ == "__main__":
                             ).date()
 
                             if datetime_obj < compare_date:
-                                writer.writerow([row[0], row[1], row[2]])
+                                writer.writerow([row[0], row[1], row[2], row[3]])
                             else:
                                 break
                         line_count += 1
 
-            for (key_clone, value_clone), (key_traffic, value_traffic) in zip(
-                clone_array.items(), traffic_array.items()
+            for (key_clone, value_clone), (key_traffic, value_traffic), (key_uinique, value_unique)in zip(
+                clone_array.items(), traffic_array.items(), unique_array.items()
             ):
-                writer.writerow([key_clone, value_clone, value_traffic])
+                writer.writerow([key_clone, value_clone, value_traffic, value_unique])
 
             csv_file.close()
 
@@ -151,10 +162,8 @@ if __name__ == "__main__":
             with open(csv_str) as csv_file:
                 csv_reader = csv.reader(csv_file, delimiter=",")
                 for row in csv_reader:
-                    writer.writerow([row[0], row[1], row[2]])
+                    writer.writerow([row[0], row[1], row[2], row[3]])
             csv_file.close()
 
             # Remove temp file.
             os.remove(csv_str_temp)
-
-
